@@ -7,15 +7,17 @@ import ibatech.phonebook.model.enumerated.OperationStatus;
 import ibatech.phonebook.model.enumerated.OperationType;
 import ibatech.phonebook.repository.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public ResponseData save (UserDto userDto)
     {
