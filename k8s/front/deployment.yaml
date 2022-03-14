@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+  namespace: front-app
+  labels:
+    app: front-app
+    env: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-app
+  template:
+    metadata:
+      labels:
+        app: front-app
+        env: demo
+    spec:
+      containers:
+      - name: front-app
+        image: localhost:5005/front-app:v1.0.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+        volumeMounts:
+        - name: app-config
+          mountPath: /app/config
+      volumes:
+      - name: app-config
+        configMap:
+          name: app-config
+          items:
+          - key: backend-url
+            path: bakend-url

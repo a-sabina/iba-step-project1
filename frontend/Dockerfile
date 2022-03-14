@@ -1,9 +1,10 @@
 FROM node:16.13.1 as builder
 
+ENV API_URL `cat /app/config/backend-url`
+
 WORKDIR /app
 
 COPY package.json ./
-COPY package-lock.json ./
 
 RUN npm install
 

@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: backend
+metadata:
+  name: backend
+  namespace: backend-app
+spec:
+  selector:
+    app: backend-app
+    env: demo
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

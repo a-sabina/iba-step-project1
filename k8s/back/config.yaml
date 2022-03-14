@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-config
+  namespace: backend-app
+data:
+  MYSQLDB_USER: root
+  MYSQLDB_ROOT_PASSWORD: root
+  MYSQLDB_DATABASE: ibatech
+  MYSQLDB_URL: jdbc:my-app-db.cg9dc9jjwlmq.us-east-2.rds.amazonaws.com

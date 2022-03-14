@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ui
+  namespace: front-app
+spec:
+  selector:
+    app: front-app
+    env: demo
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000

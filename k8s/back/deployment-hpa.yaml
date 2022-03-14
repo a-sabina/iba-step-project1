@@ -1,0 +1,16 @@
+apiVersion: auotoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-app
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backend-app
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 60
